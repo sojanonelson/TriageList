@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github } from "lucide-react";
 import { useEffect, useState } from "react";
-
+import Navbar from "@/components/Navbar"
 export default function Home() {
   const [submitted, setSubmitted] = useState(false);
   const [email, setEmail] = useState("");
@@ -71,40 +71,9 @@ export default function Home() {
         transition={{ duration: 0.6 }}
         className="max-w-3xl mx-auto px-6 w-full"
       >
-        <div className="flex items-center justify-between mb-16">
-          <div className="flex items-center gap-4">
-            <Image
-              src="/icon.png"
-              alt="TriageList"
-              width={48}
-              height={48}
-            />
-            <h1 className="text-2xl font-semibold text-[#0284C7]">
-              TriageList
-            </h1>
-          </div>
 
-          <div className="flex items-center gap-4">
-            <motion.a
-              href="https://github.com/raze0017/TriageList"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileTap={{ scale: 0.95 }}
-              className="text-[#334155] hidden lg:hidden hover:text-[#0284C7] transition"
-            >
-              <Github size={22} />
-            </motion.a>
-
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-              className="text-xs px-3 py-1 rounded-full bg-[#14B8A6]/10 text-[#14B8A6] font-medium"
-            >
-              Development in Progress
-            </motion.span>
-          </div>
-        </div>
+        <Navbar />
+       
 
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -175,7 +144,7 @@ export default function Home() {
 
         <motion.div
           layout
-          className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200"
+          className="bg-white p-8 rounded-2xl  border border-slate-200"
         >
           <AnimatePresence mode="wait">
             {!submitted ? (
